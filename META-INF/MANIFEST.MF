@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: LnDomain
+Bundle-SymbolicName: de.linnk.domain
+Bundle-Version: 0.0.1.SNAPSHOT
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

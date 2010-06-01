@@ -6,3 +6,14 @@ Bundle-Version: 0.0.2.SNAPSHOT
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.linnk.domain,
  de.linnk.gwt
+Import-Package: de.mxro.utils,
+ de.mxro.utils.application,
+ de.mxro.utils.background,
+ de.mxro.utils.distributedtree,
+ de.mxro.utils.domain,
+ de.mxro.utils.domain.authentication,
+ de.mxro.utils.drm,
+ de.mxro.utils.gwt,
+ de.mxro.utils.history,
+ de.mxro.utils.log,
+ de.mxro.utils.progress

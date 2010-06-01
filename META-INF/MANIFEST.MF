@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: LnDomain
 Bundle-SymbolicName: de.linnk.domain
-Bundle-Version: 0.0.1
+Bundle-Version: 0.0.2.SNAPSHOT
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.linnk.domain,
  de.linnk.gwt

@@ -3,6 +3,7 @@
   <groupId>de.linnk.domain</groupId>
   <artifactId>lnDomain</artifactId>
   <version>0.0.2-SNAPSHOT</version>
+  <packaging>bundle</packaging>
   <build>
   	<!-- Resources -->
     <resources>
@@ -53,7 +54,90 @@
         </configuration>
       </plugin>
       
-      <plugin>
+       <!--  The Maven bundle plugin generates Meta-data required for OSGi  -->
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<unpackBundle>true</unpackBundle>
+					<instructions>
+						<Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+						<Bundle-Version>${pom.version}</Bundle-Version>
+						<!-- <Embed-Dependency>*;scope=compile|runtime;inline=false
+						</Embed-Dependency>
+						<Embed-Directory>target/dependency</Embed-Directory>-->
+						<Import-Package>de.mxro.utils,
+ de.mxro.utils.application,
+ de.mxro.utils.background,
+ de.mxro.utils.distributedtree,
+ de.mxro.utils.domain,
+ de.mxro.utils.domain.authentication,
+ de.mxro.utils.drm,
+ de.mxro.utils.gwt,
+ de.mxro.utils.history,
+ de.mxro.utils.log,
+ de.mxro.utils.progress,
+ !*</Import-Package>
+						<Export-Package>de.linnk.domain,
+ de.linnk.gwt</Export-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+
+				<executions>
+					<!--
+						This additional execution can extract all the JARs of the
+						dependencies
+					-->
+					<!-- <execution>
+						<id>unpack-dependencies</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>unpack-dependencies</goal>
+						</goals>
+						<configuration>
+							<includeGroupIds>org.w3c.tidy</includeGroupIds>
+						</configuration>
+					</execution>-->
+
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>false</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!--  Cleanup necessary because of PDE tweaks -->
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>${basedir}</directory>
+							<includes>
+								<include>*.jar</include>
+							</includes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+      
+      <!--<plugin>
       	<groupId>org.apache.maven.plugins</groupId>
       	<artifactId>maven-jar-plugin</artifactId>
       	<configuration>
@@ -61,7 +145,7 @@
       			<manifestFile>META-INF/MANIFEST.MF</manifestFile>
       		</archive>
         </configuration>
-      </plugin> 
+      </plugin> -->
       
     </plugins>
   </build>

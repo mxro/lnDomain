@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: lnDomain
-Bundle-SymbolicName: de.linnk.domain
+Bundle-Name: Unnamed - de.linnk.domain:lnDomain:bundle:0.0.2-SNAPSHOT
+Bundle-SymbolicName: lnDomain;singleton:=true
 Bundle-Version: 0.0.2.SNAPSHOT
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.linnk.domain,
@@ -17,3 +17,5 @@ Import-Package: de.mxro.utils,
  de.mxro.utils.history,
  de.mxro.utils.log,
  de.mxro.utils.progress
+Bundle-ClassPath: .,
+ mxUtilities-0.0.1.jar

@@ -1,21 +1,19 @@
 Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Unnamed - de.linnk.domain:lnDomain:bundle:0.0.2-SNAPSHOT
-Bundle-SymbolicName: lnDomain;singleton:=true
+Export-Package: de.linnk.domain;uses:="de.mxro.utils.distributedtree,d
+ e.mxro.utils.domain,de.linnk.gwt,de.mxro.utils.drm,de.mxro.utils.gwt,
+ de.mxro.utils.log,de.mxro.utils",de.linnk.gwt;uses:="de.linnk.domain"
+Built-By: mx
+Build-Jdk: 1.6.0_20
 Bundle-Version: 0.0.2.SNAPSHOT
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: de.linnk.domain,
- de.linnk.gwt
-Import-Package: de.mxro.utils,
- de.mxro.utils.application,
- de.mxro.utils.background,
- de.mxro.utils.distributedtree,
- de.mxro.utils.domain,
- de.mxro.utils.domain.authentication,
- de.mxro.utils.drm,
- de.mxro.utils.gwt,
- de.mxro.utils.history,
- de.mxro.utils.log,
- de.mxro.utils.progress
-Bundle-ClassPath: .,
- mxUtilities-0.0.1.jar
+Tool: Bnd-0.0.357
+Bundle-Name: lnDomain
+Bnd-LastModified: 1277787942655
+Created-By: Apache Maven Bundle Plugin
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: lnDomain
+Import-Package: de.linnk.domain,de.linnk.gwt,de.mxro.utils,de.mxro.uti
+ ls.application,de.mxro.utils.background,de.mxro.utils.distributedtree
+ ,de.mxro.utils.domain,de.mxro.utils.domain.authentication,de.mxro.uti
+ ls.drm,de.mxro.utils.gwt,de.mxro.utils.history,de.mxro.utils.log,de.m
+ xro.utils.progress
+

@@ -44,59 +44,7 @@
 	<name>${module.name}</name>
 	<packaging>bundle</packaging>
 	<build>
-		<!-- Resources -->
-		<resources>
-			<!--
-				This entry makes sure that resources, which lie in the same package
-				as Java classes, are copied into the target. Often external
-				libraries require resources, which are loaded using
-				Class.getResource or Class.getResourceAsStream and which are in a
-				subpackage of the class. For instance, the NetBeans template for the
-				Swing Application Framework does so.
-			-->
-			<resource>
-				<filtering>false</filtering>
-				<directory>src/main/java</directory>
-				<includes>
-					<include>**</include>
-				</includes>
-				<excludes>
-					<exclude>**/*.java</exclude>
-				</excludes>
-			</resource>
-			<!--
-				This entry makes sure component definitions for OSGi declarative
-				services are copied into the destination
-			-->
-			<resource>
-				<targetPath>OSGI-INF</targetPath>
-				<filtering>false</filtering>
-				<directory>OSGI-INF</directory>
-				<includes>
-					<include>**</include>
-				</includes>
-			</resource>
-			<!--
-				I really do not know why know a manual entry for src/main/resources
-				is necessary? It should be included following the Maven convention.
-			-->
-			<resource>
-				<filtering>false</filtering>
-				<directory>src/main/resources</directory>
-				<includes>
-					<include>**</include>
-				</includes>
-			</resource>
-			<!-- Might be of use for eclipse Plug-In Development -->
-			<resource>
-				<directory>.</directory>
-				<includes>
-					<include>plugin.xml</include>
-				</includes>
-			</resource>
-		</resources>
-		<!-- Resources End -->
-
+		
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -106,7 +54,10 @@
 				</configuration>
 			</plugin>
 
+			
+			<!-- FOR BUNDLE MANAGEMENT -->
 			<!--  The Maven bundle plugin generates Meta-data required for OSGi  -->
+
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
@@ -119,10 +70,16 @@
 						<Export-Package>${module.exportedPackages}</Export-Package>
 						<Service-Component>${module.serviceDefinitions}
 						</Service-Component>
+						<!-- <Embed-Dependency>${module.embeddedDependencies}
+						</Embed-Dependency>
+						<Embed-Directory>target/dependency</Embed-Directory>-->
+						<Embed-Transitive>${module.embedTransitive}</Embed-Transitive>
+						<_exportcontents>${module.exportedContents}</_exportcontents>
 					</instructions>
 				</configuration>
 			</plugin>
 
+		    <!-- FOR MAVEN ECLIPSE PLUGIN -->
 			<!--
 				Dependency Plugin used to copy the dependency JARs into the root
 				project folder. There the Maven eclipse plugin will add them to the
@@ -189,6 +146,52 @@
 			</plugin>
 
 		</plugins>
+		
+		<!-- RESOURCES -->
+		<resources>
+			<!--
+				This entry makes sure that resources, which lie in the same package
+				as Java classes, are copied into the target. Often external
+				libraries require resources, which are loaded using
+				Class.getResource or Class.getResourceAsStream and which are in a
+				subpackage of the class. For instance, the NetBeans template for the
+				Swing Application Framework does so.
+			-->
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+			<!--
+				This entry makes sure component definitions for OSGi declarative
+				services are copied into the destination
+			-->
+			<resource>
+				<targetPath>OSGI-INF</targetPath>
+				<filtering>false</filtering>
+				<directory>OSGI-INF</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+			</resource>
+			<!--
+				I really do not know why know a manual entry for src/main/resources
+				is necessary? It should be included following the Maven convention.
+			-->
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+			</resource>
+			
+		</resources>
 	</build>
 
 	<distributionManagement>

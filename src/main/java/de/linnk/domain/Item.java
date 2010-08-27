@@ -1,11 +1,16 @@
 package de.linnk.domain;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Vector;
 
 import de.linnk.gwt.LinnkGWTUtils;
+import de.linnk.nx.CompositeNode;
+import de.linnk.nx.core.CompositeNodeManager;
 
 
-public abstract class Item {
+
+public abstract class Item implements CompositeNode<Object> {
 	protected final User creator;
 	protected final Date created;
 	protected String id;
@@ -13,10 +18,40 @@ public abstract class Item {
 	protected String completeID;
 	
 	
+	@Override
+	public List<Object> getNodes() {	
+		return new Vector<Object>();
+	}
+	
+	private Item findRootItemHelper(Item i) {
+		if (i == this) return i;
+		if (i instanceof ProxyItem) return this.findRootItemHelper(((ProxyItem) i).getItem());
+		return null;
+	}
+	
+	@Override
+	public Object getOwnerNode() {
+		if (this.getDocument().getRootItem(this) == this) return this.getDocument();
+		return findRootItemHelper(this.getDocument().getRootItem(this));
+	}
+	
+	@Override
+	public void addNode(Object n){
+		
+	}
+	@Override
+	public void removeNode(Object n) {
+		
+	}
+	
+	
+	
 	public Item(final User creator, 
 			   final String id,
 			   final Document document) {
 		super();
+		//this.nodeManager = new CompositeNodeManager();
+		
 		this.creator = User.newInstance(creator); // this is a trick to aviod that xstream uses references
 		this.created = (Date) new Date().clone();  // this is a trick to aviod that xstream uses reference
 		this.id = id;

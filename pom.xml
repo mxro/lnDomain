@@ -29,8 +29,18 @@
 		<dependency>
 			<groupId>de.mxro.utils</groupId>
 			<artifactId>mxUtilities</artifactId>
-			<version>0.0.1</version>
+			<version>[0.0.1,)</version>
 			<optional>false</optional>
+		</dependency>
+		<dependency>
+		<groupId>de.linnk.nx</groupId>    
+		<artifactId>nxDomain</artifactId>           
+		<version>[0.0.1,)</version>
+		</dependency>
+		<dependency>
+		<groupId>de.linnk.nx.core</groupId>    
+		<artifactId>nxCore</artifactId>           
+		<version>[0.0.1,)</version>
 		</dependency>
 	</dependencies>
 

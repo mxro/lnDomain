@@ -1,13 +1,15 @@
 package de.linnk.domain;
 
 
+
+import de.linnk.nx.ContentNode;
 import de.mxro.utils.domain.Styled;
 
 
 
 
 public final class TextItem extends Item implements Styled, EasyEditItem,
-		Copyable {
+		Copyable, ContentNode<String> {
 
 	private final String text;
    
@@ -54,6 +56,14 @@ public final class TextItem extends Item implements Styled, EasyEditItem,
 	public void beforeToString() {
 
 	}
+
+	@Override
+	public String getContent() {
+		
+		return text;
+	}
+
+	
 
 	
 

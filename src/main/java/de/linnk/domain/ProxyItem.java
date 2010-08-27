@@ -1,5 +1,8 @@
 package de.linnk.domain;
 
+import java.util.List;
+import java.util.Vector;
+
 import de.linnk.gwt.LinnkGWTUtils;
 import de.mxro.utils.domain.Styled;
 
@@ -17,6 +20,13 @@ public abstract class ProxyItem extends Item implements Styled, Copyable {
 		return this.item;
 	}
 
+	@Override
+	public List<Object> getNodes() {	
+		Vector<Object> v = new Vector<Object>();
+		v.add(this.getItem());
+		return v;
+	}
+	
 	public Item getItem(String id) {
 		final String[] parts = id.split(LinnkConstants.ITEM_PATH_SEPARATOR);
 		if (parts.length == 0)

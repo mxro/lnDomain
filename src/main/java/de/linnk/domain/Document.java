@@ -1,10 +1,13 @@
 package de.linnk.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
 import de.linnk.gwt.LinnkGWTUtils;
+import de.linnk.nx.CompositeNode;
+import de.linnk.nx.core.NodeURIReference;
 import de.mxro.utils.distributedtree.ChangedLink;
 import de.mxro.utils.domain.URIResource;
 import de.mxro.utils.drm.Change;
@@ -14,7 +17,7 @@ import de.mxro.utils.log.UserError;
 
 
 /*@XStreamImplicitCollection(value="items",item="item")*/
-public abstract class Document implements URIResource {
+public abstract class Document implements URIResource, CompositeNode<Item> {
 	protected final User creator;
 	protected final Date created;
 	protected final List<Item> items;
@@ -36,6 +39,24 @@ public abstract class Document implements URIResource {
 	protected String filename;
 	
 	protected transient boolean altered;
+	
+	@Override
+	public List<Item> getNodes() {
+		return this.getItems();
+	}
+	
+	@Override
+	public Object getOwnerNode() {
+		return new NodeURIReference(this.getOwnerLink());
+	}
+	@Override
+	public void addNode(Item n) {
+		this.appendItem(n);
+	}
+	@Override
+	public void removeNode(Item n) {
+		this.removeItem(n);
+	}
 	
 	public final boolean isAltered() {
 		return this.altered;

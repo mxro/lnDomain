@@ -6,7 +6,7 @@ import java.util.Vector;
 
 import de.linnk.gwt.LinnkGWTUtils;
 import de.linnk.nx.CompositeNode;
-import de.linnk.nx.core.CompositeNodeManager;
+
 
 
 

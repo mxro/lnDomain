@@ -7,7 +7,6 @@ import java.util.Vector;
 
 import de.linnk.gwt.LinnkGWTUtils;
 import de.linnk.nx.CompositeNode;
-import de.linnk.nx.core.NodeURIReference;
 import de.mxro.utils.distributedtree.ChangedLink;
 import de.mxro.utils.domain.URIResource;
 import de.mxro.utils.drm.Change;
@@ -47,7 +46,7 @@ public abstract class Document implements URIResource, CompositeNode<Item> {
 	
 	@Override
 	public Object getOwnerNode() {
-		return new NodeURIReference(this.getOwnerLink());
+		return null;
 	}
 	@Override
 	public void addNode(Item n) {

@@ -37,7 +37,7 @@ public abstract class ProxyItem extends Item implements Styled, Copyable {
 			return this.getItem();
 		if (!(this.getItem() instanceof ProxyItem))
 			return null;
-		return ((ProxyItem) this.getItem()).getItem(de.mxro.utils.gwt.MxroGWTUtils.removeFirstElement(id, LinnkConstants.ITEM_PATH_SEPARATOR));
+		return ((ProxyItem) this.getItem()).getItem(mx.gwtutils.MxroGWTUtils.removeFirstElement(id, LinnkConstants.ITEM_PATH_SEPARATOR));
 		
 	}
 	

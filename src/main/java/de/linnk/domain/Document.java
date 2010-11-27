@@ -5,12 +5,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
+import mx.gwtutils.MxroGWTUtils;
+
 import de.linnk.gwt.LinnkGWTUtils;
 import de.linnk.nx.CompositeNode;
 import de.mxro.utils.distributedtree.ChangedLink;
 import de.mxro.utils.domain.URIResource;
 import de.mxro.utils.drm.Change;
-import de.mxro.utils.gwt.MxroGWTUtils;
 import de.mxro.utils.log.UserError;
 
 
@@ -122,7 +123,7 @@ public abstract class Document implements URIResource, CompositeNode<Item> {
 			return item;
 		if (!(item instanceof ProxyItem))
 			return null;
-		return ((ProxyItem) item).getItem(de.mxro.utils.gwt.MxroGWTUtils.removeFirstElement(completeID, LinnkConstants.ITEM_PATH_SEPARATOR));
+		return ((ProxyItem) item).getItem(mx.gwtutils.MxroGWTUtils.removeFirstElement(completeID, LinnkConstants.ITEM_PATH_SEPARATOR));
 	}
 	
 	public List<Item> getItems() {

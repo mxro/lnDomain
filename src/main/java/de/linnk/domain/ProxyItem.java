@@ -82,6 +82,7 @@ public abstract class ProxyItem extends Item implements Styled, Copyable {
 
 	
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public <I extends Item> I getItem(Class<I> clazz) {
 		// if (clazz.isAssignableFrom(this.getClass()))

@@ -13,8 +13,10 @@ public final class TextItem extends Item implements Styled, EasyEditItem,
 
 	private final String text;
    
+	@SuppressWarnings("unused")
 	private String textXML;
 
+	@SuppressWarnings("unused")
 	private transient String onlyText = null;
 
 	public TextItem(User creator, String id, Document document,

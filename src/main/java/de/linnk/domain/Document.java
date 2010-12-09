@@ -190,7 +190,7 @@ public abstract class Document implements URIResource, CompositeNode<Item> {
 		return getRootItemHelper(this, item);
 	}
 	
-	/* only accsessible from current package !!! */
+	/* only access from current package !!! */
 	public boolean appendItem(Item item) {
 		if (this.getItem(item.getId()) != null) {
 			UserError.singelton.log(this, "appendItem: Insertion of item with not unique id: "+item.getId(), UserError.Priority.HIGH);

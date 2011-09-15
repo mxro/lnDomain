@@ -17,8 +17,7 @@
 			de.mxro.utils.progress,
 			*
 		</module.importedPackages>
-		<module.exportedPackages>de.linnk.domain,
-			de.linnk.gwt
+		<module.exportedPackages>de.linnk.domain*,de.linnk.gwt*
 		</module.exportedPackages>
 		<module.serviceDefinitions>
 		</module.serviceDefinitions>

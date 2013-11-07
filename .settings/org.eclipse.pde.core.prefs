@@ -1,4 +1,4 @@
-#Tue Jun 01 14:06:22 NZST 2010
+BUNDLE_ROOT_PATH=target/classes
 eclipse.preferences.version=1
 pluginProject.equinox=false
 pluginProject.extensions=false
